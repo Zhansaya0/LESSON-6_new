@@ -115,7 +115,5 @@
             android:text="Log in" />
     </LinearLayout>
 
-
-
 </LinearLayout>
 </ScrollView>

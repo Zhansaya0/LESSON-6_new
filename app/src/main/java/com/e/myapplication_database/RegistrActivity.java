@@ -65,13 +65,9 @@ public class RegistrActivity extends AppCompatActivity implements View.OnClickLi
         button_signup.setOnClickListener(this);
         button_login.setOnClickListener(this);
 
-
-
-
     }
     public void initSpinner(){
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_GROUPS, null);
-
         if((cursor != null && cursor.getCount()>0)) {
             while (cursor.moveToNext()) {
                 String group_name = cursor.getString(cursor.getColumnIndex(COLUMN_GROUP_INFO));
@@ -81,30 +77,24 @@ public class RegistrActivity extends AppCompatActivity implements View.OnClickLi
                 Log.i("Database","fullname: "+group_name );
                 Log.i("Database","email: "+group_sum );
                 Log.i("Database","password: "+group_id );
-
                 list.add(group_name);
             }
         }
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.item_group , list);
         group_spinner.setAdapter(adapter);
     }
 
-
     public void initSpinner2(){
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_UNIVERSITY, null);
-
         if((cursor != null && cursor.getCount()>0)) {
             while (cursor.moveToNext()) {
                 String choise_university = cursor.getString(cursor.getColumnIndex(COLUMN_UNIVERSITY_CHOICE));
 
                 Log.i("Database","fullname: "+choise_university );
-
                 list2.add(choise_university);
             }
         }
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.item_group, list);
         group_spinner.setAdapter(adapter);
@@ -160,7 +150,6 @@ public class RegistrActivity extends AppCompatActivity implements View.OnClickLi
 
     public void showDatabaseData(){
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_STUDENTS, null);
-
         if((cursor != null && cursor.getCount()>0)) {
             while (cursor.moveToNext()) {
                 String name = cursor.getString(cursor.getColumnIndex(COLUMN_INFO));
